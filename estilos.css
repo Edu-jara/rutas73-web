@@ -1,0 +1,856 @@
+/* ==========================================================================
+    CONFIGURACIÓN DE NAVEGACIÓN Y DESPLAZAMIENTO (Scroll)
+    Estas reglas controlan cómo se mueve la pantalla cuando usamos los 
+    enlaces internos del menú para que el movimiento sea suave y no tape los títulos.
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/** { outline: 1px solid red; }linea para ver que boque sale de la pantalla*/
+html {
+    /* scroll-behavior: Crea un efecto de deslizamiento suave en lugar de un salto brusco */
+    scroll-behavior: smooth;
+
+    /* scroll-padding-top: Deja un "colchón" de espacio arriba al llegar a una sección. 
+       Esto evita que el menú (si es fijo) tape el título de la sección a la que llegamos. */
+    scroll-padding-top: 200px;
+    /* Obliga al contenedor raíz a medir el total de la pantalla */
+    height: 100%; 
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    html {
+        /* Bajamos el colchón para que no se vea lo de arriba */
+        scroll-padding-top: 120px !important; 
+    }
+
+}
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 300px !important; /* Ajustá este número a ojo */
+    }
+
+
+}
+
+body {
+    /* Fondo Rockero */
+    background-color: #121212; 
+    background-image: url('img/fondo3.png');
+    background-attachment: fixed;
+    background-size: 250px; 
+    background-repeat: repeat;
+    
+    /* Estructura para que el Footer no flote */
+    min-height: 100vh;      /* Ocupa toda la altura de la pantalla */
+    display: flex;          /* Activa el sistema de cajas */
+    flex-direction: column; /* Apila Nav, Main y Footer en vertical */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;     /* Mata el scroll horizontal y limpia los bordes */
+}
+
+.header-river {
+    
+    background-image: url('img/ruta.png');
+    background-size: cover;
+    background-position: center 60%;
+    background-attachment: scroll; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* --- CONFIGURACIÓN PARA COMPU (Mac) --- */
+    min-height: 450px; /* Volvemos a los 550 para que la ruta se luzca en grande */
+    
+    padding: 10px 10px;
+    border-bottom: 8px solid #ff0000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 0 !important;
+}
+
+
+
+.logo-img {
+    height: 500px;              /* Ajustamos el tamaño del logo */
+    width: auto;
+    transition: transform 0.3s; /* Preparado para un efecto */
+    
+}
+
+.logo-img:hover {
+    transform: rotate(-5deg) scale(1.1); /* El logo se mueve un poquito al pasar el mouse */
+}
+
+.logo-contenedor {
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* EL CONTENEDOR DE LA NAVEGACIÓN */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.8); /* Un fondo oscuro semitransparente */
+    padding: 15px 0;
+    border-bottom: 3px solid #ff0000; /* La línea roja que no puede faltar */
+}
+
+/* LA LISTA (UL) */
+nav ul {
+    list-style: none;         /* Le quita los puntos negros */
+    display: flex;            /* Pone los links uno al lado del otro */
+    justify-content: center;  /* Los centra en la pantalla */
+    gap: 30px;                /* Espacio de "aire" entre cada botón */
+    margin: 0;
+    padding: 0;
+}
+
+/* CADA LINK (A) */
+nav ul li a {
+    text-decoration: none;    /* Chau subrayado azul */
+    color: #ffffff;           /* Letras blancas */
+    font-family: 'Archivo Black', sans-serif; /* Usamos la letra gruesa */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* EFECTO CUANDO PASÁS EL MOUSE (HOVER) */
+nav ul li a:hover {
+    color: #ff0000;           /* El texto se pone rojo */
+    background-color: #ffffff; /* El fondo se pone blanco */
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); /* Un brillo rojo suave */
+}
+.proximos-shows {
+    font-family:'Saira Stencil', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    /* ESTO ES LA CLAVE: Empujamos todo hacia abajo para que 
+       no se meta debajo del menú de navegación */
+    margin-top: 80px !important; 
+    padding-top: 10px;
+    clear: both;
+}
+.contenedor-tarjetas {
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.tarjeta-show {
+    background-color: #ffffff;
+    border: 2px solid #f80505;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 350px;
+    transition: transform 0.3s;
+}
+
+.tarjeta-show:hover {
+    transform: scale(1.05); /* Efecto de que se agranda al pasar el mouse */
+    border-color: #ff0000;
+}
+
+.imagen-show {
+    position: relative;
+    height: 200px;
+}
+
+.imagen-show img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para que la foto no se deforme */
+}
+
+.precio {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #ff0000;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.info-show {
+    padding: 20px;
+    text-align: left;
+}
+
+.boton-reserva {
+    display: block;
+    background-color: #f1c40f; /* Amarillo para que resalte del negro/rojo */
+    color: #000;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+
+
+/* ==========================================================================
+    TÍTULOS DE LAS SECCIONES (Próximos Shows, Giras, Contacto)
+   ========================================================================== */
+.titulo-seccion {
+    /* Muestra el fondo rojo solo detrás de las letras y no en todo el renglón */
+    display: inline-block; 
+    
+    background-color: #ff0000; 
+    color: #fff;
+    font-family: 'Saira Stencil', sans-serif;
+    font-size: 2.2rem;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    
+    /* Inclina el título un poquito para que parezca un sticker pegado */
+    transform: rotate(-1.5deg); 
+    
+    /* Crea la sombra negra sólida (sin desenfoque) que le da el toque Rockero */
+    box-shadow: 7px 7px 0px #000;
+    
+    /* Seguridad: si el título es muy largo, no deja que se salga de la pantalla */
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+/* ==========================================================================
+    TÍTULO ESPECIAL PARA LA GALERÍA (Nuestras Giras)
+   ========================================================================== */
+.contenedor-galeria h2 {
+    font-family:'Saira Stencil', sans-serif !important;
+    font-size: 3rem;
+    text-align: center;
+    color: #fffefe;
+    text-transform: uppercase;
+    margin: 60px 0 30px 0; 
+    position: relative;
+    
+    /* Esta es la línea que arregló el ancho: ajusta el fondo al tamaño del texto */
+    display: table; 
+    
+    /* Agrega una sombra roja por detrás de las letras */
+    text-shadow: 3px 3px 0px #f40c0c; 
+    
+    /* Centrado automático para elementos tipo 'table' */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Para que el título, aunque sea chiquito, esté en el centro de la pantalla */
+.contenedor-galeria {
+    text-align: center;
+}
+/* Este es el contenedor que guarda todas las fotos */
+.grilla-fotos {
+    display: grid;
+    /* Crea columnas de 300px cada una. Si no entran, las pasa abajo solas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; /* El espacio entre foto y foto */
+    padding: 20px;
+}
+
+/* Este es el truco para que las fotos no se descontrolen */
+.grilla-fotos img {
+    width: 100%;      /* Que ocupen todo el ancho de su columna */
+    height: 250px;    /* Altura fija para que todas se vean iguales */
+    object-fit: cover; /* ¡CLAVE! Corta la foto para que no se estire ni se vea flaca */
+    border-radius: 10px; /* Bordes redondeados para que sea más moderno */
+    border: 3px solid #333; /* Un marquito oscuro */
+    transition: 0.3s; /* Para que el efecto de zoom sea suave */
+}
+
+/* Efecto cuando pasás el mouse (como si fuera un sticker) */
+.grilla-fotos img:hover {
+    transform: scale(1.05);
+    border-color: #ff0000; /* Se pone rojo River al seleccionarla */
+    cursor: pointer;
+}
+
+
+.bloque-video {
+    width: 90%;           /* Que no pegue a los bordes de la pantalla */
+    max-width: 600px;     /* Un ancho razonable para que no sea gigante */
+    height: 300px;        /* FUERZA una altura fija. Ajustá este número a tu gusto */
+    margin: 20px auto;    /* Lo centra horizontalmente */
+    overflow: hidden;     /* Corta cualquier cosa que intente salirse de los 350px */
+    position: relative;
+    border: 5px solid #333;
+    border-radius: 15px;
+    background-color: #000; /* Fondo negro por si el video es más chico */
+}
+
+.video-chico {
+    width: 100%;
+    height: 100%;         /* Obliga al video a medir exactamente los 350px del contenedor */
+    object-fit: cover;    /* LLENA el espacio. Si sobra video arriba o abajo, lo recorta */
+    display: block;
+}
+
+.frase-cierre {
+    color: #f30707;
+    font-family:'Archivo Black', sans-serif;
+    font-size: 1.8rem;
+    margin: 1;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #fafafa;
+}
+.contenedor-boton-galeria {
+    text-align: center;
+    margin: 40px 0; /* Le damos aire arriba y abajo */
+}
+/* el grid pone las card en columna una al lado de la ota */
+.reseñas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px; /* Separación con los bordes de la pantalla */
+}
+.contenedor-reseñas {
+    /*background-color: #ffffff; /* Un gris muy clarito o un color suave */
+    padding: 60px 20px;       /* Mucho aire arriba y abajo para que respire */
+    text-align: center;       /* Centramos el título */
+}
+/* pone fondo blanco y crea los bordes de las targetas*/
+.card {
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    background: white;
+    
+    /* Preparamos la transición aquí */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Efecto de elevación de las targetas */
+.card:hover {
+    transform: translateY(-10px); /* Efecto de elevación */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2); /* Sombra más fuerte al elevarse */
+}
+
+
+.seccion-contacto {
+    /* 1. EL TAMAÑO: Obligamos a la sección a medir casi toda la pantalla */
+    min-height: 92vh; /* Ocupa el 80% del alto de la pantalla del usuario */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra todo el contenido verticalmente */
+    align-items: center;
+    /*
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #f8f5f500 0%, #000 100%);
+    border-top: 5px solid #56cf26; */
+    
+    /* 2. EL SALTO: Para que encastre con tu línea roja */
+    scroll-margin-top: -150px; 
+}
+
+.contacto-header h2 {
+    font-family:'Archivo Black', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitulo-rock {
+    color: #ff0000;
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.lista-redes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* LA TARJETA PROFESIONAL */
+.card-red {
+    background: #222;
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 280px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-red:hover {
+    transform: translateY(-10px);
+    border-color: #ff0000;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.icon-box img {
+    width: 45px;
+    height: 45px;
+}
+
+.info-red {
+    text-align: left;
+}
+
+.info-red span {
+    display: block;
+    color: #fff;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.info-red p {
+    margin: 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* EFECTOS DE COLOR AL PASAR EL MOUSE */
+.whatsapp:hover { background: linear-gradient(145deg, #222, #128c7e); }
+.instagram:hover { background: linear-gradient(145deg, #222, #833ab4); }
+.facebook:hover { background: linear-gradient(145deg, #222, #3b5998); }
+
+
+/* El contenedor principal que envuelve a la foto y al formulario */
+.contenedor-reserva {
+    display: flex;          /* Pone los elementos uno al lado del otro */
+    flex-wrap: wrap;       /* Si la pantalla es chica (celular), los pone uno abajo del otro */
+    justify-content: center; /* Los centra en la pantalla */
+    align-items: flex-start; /* Los alinea por la parte de arriba */
+    gap: 40px;              /* Espacio de separación entre la foto y el formulario */
+    padding: 60px 20px;
+    max-width: 1200px;      /* Evita que el contenido se estire demasiado en monitores grandes */
+    margin: 60px;         /* Centra todo el bloque en el medio de la hoja */
+}
+
+/* Controlamos el tamaño de la imagen */
+.bloque-flyer {
+    flex: 1;                /* Le da un espacio flexible */
+    min-width: 300px;       /* Tamaño mínimo en celulares */
+    max-width: 500px;       /* ¡ACÁ LE PONEMOS EL TOPE! No va a ser más grande que esto */
+}
+
+.bloque-flyer img {
+    width: 100%;            /* La imagen ocupa todo el ancho de su cajita (los 500px) */
+    height: auto;           /* Mantiene la proporción para que no se deforme */
+    border-radius: 15px;    /* Bordes redondeados como un flyer moderno */
+    border: 3px solid #ff0000; /* El marco rojo River Plate */
+    box-shadow: 0 10px 30px rgb(255, 253, 253); /* Sombra para que flote */
+    /* Tu estilo con fondo negro */
+        background-color: #000000;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Estilizamos el formulario para que sea más grande y robusto */
+#contacto {
+    flex: 1;                /* Ocupa el mismo espacio que la foto */
+    min-width: 300px;
+    max-width: 600px;       /* Lo hacemos un poco más ancho que la foto */
+    background: #f6f4f4;       /* Fondo gris oscuro para resaltar del negro del body */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Ajustamos los campos del formulario para que sean más cómodos */
+#contacto input, 
+#contacto textarea {
+    width: 100%;            /* Que ocupen todo el ancho del cuadro gris */
+    padding: 12px;
+    margin-top: 8px;
+    background: #121212;    /* Fondo negro dentro de los campos */
+    border: 1px solid #444;
+    color: white;           /* Texto blanco al escribir */
+    border-radius: 5px;
+    box-sizing: border-box; /* Evita que el padding estire el ancho */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#contacto input:focus, 
+#contacto textarea:focus {
+    outline: none; /* Quitamos el borde azul feo que pone el navegador por defecto */
+    border-color: #ff0000; /* El borde se pone rojo al hacer clic */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5); /* Un brillo suave rojo alrededor */
+}
+
+/* El botón de enviar con estilo Rockero */
+#contacto button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    width: 100%;            /* Botón grande, fácil de tocar en el micro */
+}
+
+#contacto button:hover {
+    background-color: #cc0000;
+    transform: translateY(-3px); /* Pequeño efecto de salto al pasar el mouse */
+}
+
+
+
+
+
+/* ==========================================================================
+    PIE DE PÁGINA (ESTILO FINAL) FOOTER
+   ========================================================================== */
+.footer-rock {
+    background-color: #252625;
+    padding: 40px 20px;
+    border-top: 1px solid #dc0b0b;
+    
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center;
+
+    /* --- LÍNEAS TRAMPOSAS EXPLICADAS --- */
+
+    /* Fuerza al footer a medir el ancho total de la ventana del navegador */
+    width: 100vw; 
+    
+    /* Mueve el footer hacia la izquierda para ignorar cualquier margen del Body */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* BLOQUE LOGO Y FRASE */
+.footer-marca {
+    display: flex;
+    align-items: center; /* Alinea el logo con el texto */
+    gap: 20px;
+}
+
+.logo-footer {
+    height: 80px; /* Un tamaño importante pero equilibrado */
+    width: auto;
+    filter: grayscale(1) brightness(0.8);
+    transition: 0.4s;
+}
+
+.logo-footer:hover {
+    filter: grayscale(0) brightness(1);
+}
+
+.info-logo {
+    color: #f6f2f2;
+    font-family: 'Saira Stencil', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 5px; /* Bajado de 10 a 5 para que no ocupe toda la pantalla */
+    margin: 0; /* Quitamos el margin-bottom que lo tiraba para arriba */
+}
+
+/* BLOQUE REDES */
+.footer-redes {
+    display: flex;
+    flex-wrap: wrap; /* CLAVE para que no se escapen de la pantalla */
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .footer-redes a {
+        transform: scale(0.8); /* Achicamos un pelín los iconos en el celu */
+    } }
+
+.card-red-mini {
+    text-decoration: none;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.card-red-mini img {
+    width: 20px;
+    height: 20px;
+}
+
+.card-red-mini span {
+    color: #fff;
+    font-size: 0.7rem;
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+}
+
+.card-red-mini:hover {
+    transform: translateY(-3px);
+    border-color: #ff0000;
+}
+
+/* DECORACIÓN Y LEGALES */
+.footer-inferior {
+    width: 100%; /* Para que ocupe todo el ancho abajo */
+    text-align: center;
+}
+
+.linea-decorativa-footer {
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ff0000, transparent);
+    border: none;
+    margin: 20px 0;
+}
+
+.legales {
+    color: #f22525;
+    font-family: 'Kings', cursive, sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+/* ==========================================================================
+    DISEÑO PARA TABLETS (iPad, Tablets Android)
+    Se activa entre 769px y 1024px
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* 1. LOS SHOWS: En tablet usamos 2 columnas en lugar de 3 */
+    .contenedor-tarjetas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+
+    /* 2. EL HEADER: Achicamos un poco el logo para que no tape la ruta */
+    .logo-img {
+        height: 300px;
+    }
+
+    /* 3. RESERVAS: Mantenemos el logo al lado del formulario pero más apretado */
+    .contenedor-reserva {
+        display: flex;
+        flex-wrap: nowrap; /* Evitamos que se bajen todavía */
+        gap: 20px;
+        padding: 40px 10px;
+    }
+
+    .bloque-flyer {
+        max-width: 40%; /* El flyer ocupa un poco menos */
+    }
+
+    #contacto {
+        max-width: 55%;
+    }
+
+    /* 4. TÍTULOS: Un tamaño intermedio */
+    .titulo-seccion {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==========================================================================
+    DISEÑO RESPONSIVO (Breakpoints para Celulares y Tablets)
+    Este bloque se activa solo cuando la pantalla es menor a 768px.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. AJUSTE DE HEADER: Achicamos la altura para que no ocupe toda la pantalla inicial */
+    .header-river {
+        min-height: 250px; 
+        width: 100% !important;      /* Se ajusta al ancho del celu */
+        max-width: 100vw !important;  /* No permite que nada asome por el costado */
+        overflow: hidden !important;   /* Corta cualquier exceso de imagen */
+        
+        /* LA FOTO: Esto es lo más importante */
+        background-size: cover !important;     /* La foto se adapta sin empujar las paredes */
+        background-position: center center !important; 
+        background-repeat: no-repeat !important;
+    }
+
+    /* 2. TÍTULOS ADAPTATIVOS: Reducimos tamaño y ajustamos el ángulo para legibilidad */
+    .titulo-seccion {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+        transform: rotate(-1deg);
+        max-width: 85%;
+    }
+
+    /* 3. NAVEGACIÓN MOBILE: Menú flexible que se adapta al ancho del celular */
+    nav {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    nav ul {
+        gap: 8px; 
+        flex-wrap: wrap; /* Permite que los botones bajen si no entran en una línea */
+        justify-content: center;
+        padding: 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+    }
+
+    /* 4. FOOTER RESPONSIVO: Cambiamos de filas a columnas para apilar los elementos */
+    .footer-rock {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px; 
+        padding: 20px 10px;
+    }
+
+    .footer-redes {
+        display: flex;
+        justify-content: center;
+        gap: 25px; 
+        width: 100%;
+    }
+
+    .logo-footer {
+        height: 60px;
+    }
+
+    
+    
+
+    /* 1. EL CONTENEDOR PADRE: Limpiamos todo para que sea una columna limpia */
+    .contenedor-reserva {
+        display: block !important; /* Cambiamos Flex por Block para evitar empujes raros */
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 80px 0 !important;
+        text-align: center !important;
+    }
+
+    /* 2. EL CONTENEDOR DEL LOGO: Le damos su propio espacio */
+    .bloque-flyer {
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 20px !important; /* Empuja el formulario hacia abajo */
+    }
+
+    .bloque-flyer img {
+        width: 70% !important;   /* Recuperamos tamaño para que se vea bien */
+        max-width: 250px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important; /* Centrado horizontal */
+        
+        /* Tu estilo con fondo negro */
+        background-color: #000000;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+/* 1. EVITAR EL ZOOM: La fuente debe ser de 16px o más */
+    #contacto input, 
+    #contacto textarea,
+    #contacto select {
+        font-size: 16px !important; /* El número mágico para que el celu no haga zoom */
+        width: 100% !important;
+        padding: 12px !important;   /* Que sea cómodo para tocar con el dedo */
+        box-sizing: border-box !important;
+    }
+    /* 3. EL FORMULARIO: Que empiece debajo del logo, sin encimarse */
+    #contacto {
+        width: 95% !important;
+        display: block !important;
+        margin: 0 auto !important;
+        clear: both; /* Fuerza a que no tenga nada a los costados */
+    }
+
+    #contacto form {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+}
+
+
+/* ==========================================================================
+    BOTÓN DE WHATSAPP FINAL (Optimizado para PC y Celular)
+   ========================================================================== */
+
+.boton-wpp {
+    position: fixed !important; 
+    bottom: 30px;      /* Distancia en PC */
+    right: 30px;       /* Distancia en PC */
+    z-index: 99999;    /* Máxima prioridad para que no lo tape nada */
+    
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    
+    /* Tamaño para Computadora */
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+}
+
+.boton-wpp img {
+    width: 35px; /* Tamaño del icono en PC */
+    height: auto;
+}
+
+/* --- AJUSTE PARA CELULARES --- */
+@media (max-width: 768px) {
+    .boton-wpp {
+        /* Lo achicamos un 25% para que sea más sutil en el celu */
+        width: 45px;
+        height: 45px;
+        bottom: 20px; /* Lo acercamos más a la esquina */
+        right: 20px;
+    }
+
+    .boton-wpp img {
+        width: 25px; /* Icono más chico para el celu */
+    }
+}
+
+/* Efecto de movimiento rockero */
+.boton-wpp:hover {
+    transform: scale(1.1) rotate(-8deg);
+}

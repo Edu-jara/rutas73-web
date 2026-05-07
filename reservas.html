@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Reservas - Rutas 73</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Passion+One:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kings&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="body-reserva">
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="reservas.html">PASAJES</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+
+            <li><a href="index.html#contacto-info">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="proximos-shows">
+            <h2 class="titulo-seccion">RESERVA TU PASAJE</h2>
+
+            <div class="contenedor-tarjetas">
+                <article class="tarjeta-show">
+                    <div class="imagen-show">
+                        <img src="img/reci1.PNG" alt="La Renga en MDP">
+                        <span class="precio">$45.000</span>
+                    </div>
+                    <div class="info-show">
+                        <h3>LA RENGA - MAR DEL PLATA</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Salida:</strong> Plaza Paso, La Plata</p>
+                        <p><i class="fas fa-calendar-check"></i> <strong>Fecha:</strong> 15 de Mayo</p>
+                        <p>Incluye: Traslado ida y vuelta + refrigerio + buena onda.</p>
+                        <a href="#contacto" class="boton-reserva">
+                        <i class="fas fa-bus"></i> RESERVAR MI LUGAR </a> 
+                    </div>
+                </article>
+
+                <article class="tarjeta-show">
+                    <div class="imagen-show">
+                        <img src="img/renga.png" alt="la renga en gualeguaychu">
+                        <span class="precio">$85.000</span>
+                    </div>
+                    <div class="info-show">
+                        <h3>LA RENGA - GUALEGUAYCHU</h3>
+                        <p><strong>Salida:</strong> LA PLATA / 1 y 47</p>
+                        <p><strong>Fecha:</strong> 02 de mayo</p>
+                        <p>Viajá con la banda de sonido más potente.</p>
+                        <a href="#contacto" class="boton-reserva">
+                        <i class="fas fa-bus"></i> RESERVAR MI LUGAR </a> 
+                    </div>
+                </article>
+
+                <article class="tarjeta-show">
+                    <div class="imagen-show">
+                        <img src="img/reci5.JPG" alt="cabra da peste - haedo">
+                        <span class="precio">$35.000</span>
+                    </div>
+                    <div class="info-show">
+                        <h3>CABRA DA PESTE - HAEDO</h3>
+                        <p><strong>Salida:</strong> LA PLATA / 1 y 47</p>
+                        <p><strong>Fecha:</strong> 18 de ABRIL</p>
+                        <p>Viajá con la banda de sonido más potente.</p>
+                        <a href="#contacto" class="boton-reserva">  
+                        <i class="fas fa-bus"></i> RESERVAR MI LUGAR </a> 
+                    </div>
+                </article>
+
+                <article class="tarjeta-show">
+                    <div class="imagen-show">
+                        <img src="img/reci2.PNG" alt="la renga en parque ciudad">
+                        <span class="precio">$85.000</span>
+                    </div>
+                    <div class="info-show">
+                        <h3>LA RENGA - PARQUE DE LA CIUDAD</h3>
+                        <p><strong>Salida:</strong> LA PLATA / 1 y 47</p>
+                        <p><strong>Fecha:</strong> 02 de mayo</p>
+                        <p>Viajá con la banda de sonido más potente.</p>
+                        <a href="#contacto" class="boton-reserva">
+                        <i class="fas fa-bus"></i> RESERVAR MI LUGAR </a> 
+                    </div>
+                </article>
+            </div>
+        </section>
+        <div class="contenedor-reserva">
+            <div class="bloque-flyer">
+                <img src="img/logo7.png" alt="Flyer del Evento">
+            </div>
+
+            <section id="contacto">
+                <h2>Reservá tu viaje al próximo show</h2>
+                <p>Completá tus datos y nos ponemos en contacto con vos.</p>
+
+                <form action="https://formspree.io/f/meepnokn" method="POST">
+                    <label for="nombre">Nombre Completo:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+                    <br><br>
+
+                    <label for="email">Tu Correo Electrónico:</label><br>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@mail.com" required>
+                    <br><br>
+
+                    <label for="mensaje">¿A qué show querés ir?:</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Contanos qué viaje te interesa..."
+                        required></textarea>
+                    <br><br>
+
+                    <button type="submit">Enviar Consulta</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="footer-rock">
+        <div class="footer-superior">
+            <div class="footer-marca">
+                <img src="img/logo7.png" class="logo-footer" alt="Logo">
+                <span class="info-logo">RUTAS 73 - VIAJES & ROCK</span>
+            </div>
+
+            <div class="footer-redes">
+                <a href="https://wa.me/5492215340285" target="_blank" class="card-red-mini">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://instagram.com/rutas73viajes" target="_blank" class="card-red-mini">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://facebook.com/rutassetentaytresviajes" target="_blank" class="card-red-mini">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB">
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <hr class="linea-decorativa-footer">
+            <p class="legales">&copy; 2026 Rutas 73. Todos los derechos reservados.</p>
+            <p class="legales">DISEÑADO POR EDUARDO JARA</p>
+        </div>
+    </footer>
+    <a href="https://wa.me/5492215340285" target="_blank" class="boton-wpp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+
+        </a>
+</body>
+
+</html>
