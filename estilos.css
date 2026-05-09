@@ -29,9 +29,11 @@ html {
 }
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 300px !important; /* Ajustá este número a ojo */
+        scroll-padding-top: 100px !important; /* Ajustá este número a ojo */
     }
-
+#contacto {
+        scroll-margin-top: 200px !important; 
+    }
 
 }
 
@@ -684,12 +686,26 @@ nav ul li a:hover {
 }
 
 /* ==========================================================================
-    DISEÑO RESPONSIVO (Breakpoints para Celulares y Tablets)
+    DISEÑO RESPONSIVO (Breakpoints para Celulares)
     Este bloque se activa solo cuando la pantalla es menor a 768px.
    ========================================================================== */
 
 @media (max-width: 768px) {
     
+
+
+    /* --- LOGO PRINCIPAL --- */
+    .logo-img {
+        height: 320px !important; /* Bajamos de 500px a 120px para el celu */
+        width: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    .logo-contenedor {
+        padding: 100px !important; /* Achicamos el espacio que rodea al logo */
+        justify-content: center !important;
+    }
     /* 1. AJUSTE DE HEADER: Achicamos la altura para que no ocupe toda la pantalla inicial */
     .header-river {
         min-height: 250px; 
@@ -741,14 +757,26 @@ nav ul li a:hover {
     .footer-redes {
         display: flex;
         justify-content: center;
-        gap: 25px; 
+        gap: 10px; 
         width: 100%;
     }
 
     .logo-footer {
         height: 60px;
     }
+/* ---  TEXTO FOOTER EN CELU --- */
+    .info-logo {
+        font-size: 0.9rem !important; /* Bajamos de 1.2rem a 0.9rem */
+        letter-spacing: 2px !important; /* Achicamos el espacio entre letras */
+        white-space: nowrap !important; /* Le prohibimos terminantemente irse abajo */
+        text-align: center;
+    }
 
+    .footer-marca {
+        gap: 10px !important; /* Menos espacio entre el logo y el texto */
+        justify-content: center;
+        width: 100%;
+    }
     
     
 
