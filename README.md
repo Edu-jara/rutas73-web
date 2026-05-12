@@ -1,7 +1,7 @@
 Nombre del Proyecto: Rutas73Viajes-City Bell
 Descripción:
 Este proyecto es una página web básica desarrollada para que los usuarios puedan reservar  pasajes al recital que mas les guste.tambien van a poder ver fotos de viajes anteriores,ver nuestra trayectoria a lo largo de estos 26 años de Ruta73.
-El objetivo es que las personas puedan navegar por la pagina y ver futuros recitales, buscarse en la seccion fotos,compar su boleto al proximo concierto.
+El objetivo es que las personas puedan navegar por la pagina y ver futuros recitales, buscarse en la seccion fotos y compar su boleto al proximo concierto.
 
 
 # Proyecto Rutas 73 - Gestión de Viajes

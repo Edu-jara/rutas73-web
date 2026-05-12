@@ -9,7 +9,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-/** { outline: 1px solid red; }linea para ver que boque sale de la pantalla*/
+/** { outline: 1px solid red; }linea roja para ver que boque sale de la pantalla*/
 html {
     /* scroll-behavior: Crea un efecto de deslizamiento suave en lugar de un salto brusco */
     scroll-behavior: smooth;
@@ -29,7 +29,7 @@ html {
 }
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 100px !important; /* Ajustá este número a ojo */
+        scroll-padding-top: 100px !important; /* Ajustá este número para celular */
     }
 #contacto {
         scroll-margin-top: 200px !important; 
@@ -310,11 +310,12 @@ nav ul li a:hover {
 
 .frase-cierre {
     color: #f30707;
-    font-family:'Archivo Black', sans-serif;
+    font-family:'Saira Stencil', sans-serif;
     font-size: 1.8rem;
-    margin: 1;
+    margin: 20px 0;
     text-transform: uppercase;
     text-shadow: 2px 2px 0px #fafafa;
+    text-align: center;
 }
 .contenedor-boton-galeria {
     text-align: center;
@@ -830,6 +831,15 @@ nav ul li a:hover {
         width: 100% !important;
         margin: 0 auto !important;
     }
+    .frase-cierre {
+    color: #f30707;
+    font-family:'Saira Stencil', sans-serif;
+    font-size: 1.3rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #fafafa;
+    text-align: center;
+}
 }
 
 
