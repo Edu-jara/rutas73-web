@@ -1,0 +1,124 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9; /* Gris clarito, descansado para la vista */
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* --- ENCABEZADO --- */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #666666;
+    font-size: 16px;
+}
+
+/* --- CONTENEDOR DEL FORMULARIO --- */
+.contenedor-formulario {
+    background-color: #ffffff; /* Tarjeta blanca que resalta */
+    width: 100%;
+    max-width: 500px; /* Para que no se estire demasiado en pantallas grandes */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave para darle relieve */
+}
+
+.contenedor-formulario h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    border-bottom: 2px solid #eceff1;
+    padding-bottom: 10px;
+}
+
+/* --- CASILLEROS (INPUTS) --- */
+.grupo-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #4a5568;
+}
+
+/* Estilo para los casilleros de texto y número */
+.grupo-input input[type="text"],
+.grupo-input input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Cuando hacés clic en el casillero, se pinta el borde azul */
+.grupo-input input[type="text"]:focus,
+.grupo-input input[type="number"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Estilo especial para el botón de elegir archivo de tu Mac */
+.grupo-input input[type="file"] {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* --- BOTÓN DE ENVIAR --- */
+#btn-guardar {
+    width: 100%;
+    background-color: #2563eb; /* Azul profesional */
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+/* Cuando pasás el mouse por arriba del botón */
+#btn-guardar:hover {
+    background-color: #1d4ed8; /* Azul más oscuro */
+}
+
+/* Efecto de "hundido" cuando hacés clic */
+#btn-guardar:active {
+    transform: scale(0.98);
+}
+/* --- ESTILO PARA TU LOGO --- */
+.logo-img2 {
+    width: 320px;       /* Controla el ancho del logo (podés achicarlo o agrandarlo desde acá) */
+    height: auto;       /* Mantiene la proporción para que no se estire ni se deforme */
+    margin-bottom: 15px; /* Le da una separación prolija con el título de abajo */
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); /* Le da un toque de relieve suave */
+}

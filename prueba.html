@@ -148,3 +148,87 @@ console.log("Hola mundo...")
 
         </form>
     </section>
+
+
+
+    <button id="btn-corazon">❤️</button>
+    <span id="contador-likes">0</span> personas aman este viaje
+    <input type="number" id="n1" placeholder="Primer número">
+    <input type="number" id="n2" placeholder="Segundo número">
+    <button id="btn-calcular">Calcular Suma</button>
+    <h1 id="resultado"></h1>
+
+    <!--
+
+    /*
+// 1. Buscamos el botón en el HTML
+const boton = document.getElementById("btn-calcular");
+
+// 2. Le decimos qué hacer cuando le den "click"
+boton.addEventListener("click", function() {
+    
+    // 3. RECIÉN ACÁ buscamos lo que el usuario escribió en los inputs
+    let valor1 = document.getElementById("n1").value;
+    let valor2 = document.getElementById("n2").value;
+    
+    let suma = parseFloat(valor1) + parseFloat(valor2);
+    
+    // 4. Mostramos el resultado
+    document.getElementById("resultado").innerText = "La suma es: " + suma;
+});
+*/
+-->
+
+
+
+
+
+
+
+
+
+
+
+   <!--
+    /* Queremos mostrar un mensaje que combine el nombre y la edad del
+usuario, y además saber si es mayor de edad para adaptar el
+contenido si hace falta. */
+
+ // 1. Pedimos  el nombre y validamos
+ /*
+let nombre = prompt("Ingresá tu nombre completo:").trim();
+
+// Creás tu molde de letras de siempre
+let moldeLetras = /^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$/;
+
+// 2. FILTRO INMEDIATO DEL NOMBRE
+if (nombre === "" || !moldeLetras.test(nombre)) {
+    // Si el nombre está mal, el código muere acá. Tira el error y no molesta más.
+    console.log("❌ Error: El nombre contiene números, símbolos o está vacío.");
+    alert("⚠️ Por favor, ingresá un nombre válido (solo letras y espacios).");
+}
+else {
+    // 3.Pedimos la edad y validamos
+    let edadTexto = prompt("¡Nombre perfecto! Ahora ingresá tu edad:");
+    let edad = parseInt(edadTexto);
+
+    // 4. FILTRO DE LA EDAD (Adentro del else del nombre)
+    if (isNaN(edad) || edad < 1 || edad > 110) {
+        console.log("❌ Error: Esa edad es imposible o inválida.");
+        alert("⚠️ Por favor, ingresá una edad real (entre 1 y 110 años).");
+    }
+    else {
+        // 5. SI AMBOS PASARON LA PRUEBA
+        let mensajeDescriptivo = `👤 Usuario registrado: ${nombre} | Edad: ${edad} años.`;
+        console.log(mensajeDescriptivo);
+
+        if (edad >= 18) {
+            console.log("✅ Resultado: Mayor de edad.");
+            alert(`¡Hola ${nombre}! Sos mayor de edad, podés reservar tu lugar.`);
+        } else {
+            console.log("ℹ️ Resultado: Menor de edad.");
+            alert(`¡Hola ${nombre}! Al ser menor de edad, necesitás autorización.`);
+        }
+    }
+}
+    */.   -->

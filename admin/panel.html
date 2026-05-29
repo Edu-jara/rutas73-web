@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Ruta 73</title>
+    <!-- Vinculamos el CSS exclusivo del panel que está en la misma carpeta admin -->
+    <link rel="stylesheet" href="panel-style.css">
+    <script type="module" src="panel-script.js"></script>
+    
+</head>
+
+<body>
+
+    <header>
+     <img src="img2/logo7.png" alt="Logo Rutas 73" class="logo-img2">
+        <h1>Panel de Control - Ruta 73</h1>
+        <p>Subir nuevos viajes a la cartelera</p>
+    </header>
+
+    <main>
+        <!-- Formulario para cargar los datos del viaje -->
+        <section class="contenedor-formulario">
+            <h2>Cargar Nuevo Show / Recital</h2>
+
+            <form id="formulario-viaje">
+
+                <!-- Casillero 1: Destino del viaje -->
+                <div class="grupo-input">
+                    <label for="destino">Nombre del Evento / Destino:</label>
+                    <input type="text" id="destino" placeholder="Ej: La Renga en Córdoba" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="fecha"> Fecha:</label>
+                    <input type="text" id="fecha" placeholder="Ej:25 de mayo" required>
+                </div>
+
+                <!-- Casillero 2: Precio del pasaje -->
+                <div class="grupo-input">
+                    <label for="precio">Precio del Viaje ($):</label>
+                    <input type="number" id="precio" placeholder="Ej: 80000" required>
+                </div>
+
+                <!-- Casillero 3: Buscador de archivos locales -->
+                <div class="grupo-input">
+                    <label for="imagen">Seleccionar Foto del Recital:</label>
+                    <input type="file" id="imagen" accept="image/*" required>
+                </div>
+
+                <!-- Botón para enviar los datos -->
+                <button type="submit" id="btn-guardar">Publicar Viaje 🚌</button>
+
+            </form>
+        </section>
+    </main>
+
+
+</body>
+
+</html>
